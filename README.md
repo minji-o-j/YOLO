@@ -7,6 +7,7 @@ https://www.youtube.com/watch?v=HMgcvgRrDcA
 https://yeomko.tistory.com/48  
 https://uos-deep-learning.tistory.com/18  
 https://medium.com/@venkatakrishna.jonnalagadda/object-detection-yolo-v1-v2-v3-c3d5eca2312a `1,2,3 비교`  
+https://medium.com/@wise_snow_bee_167/%EB%AA%A9%EC%B0%A8-4c378d1546b6  
 
 
 엄청많다..
