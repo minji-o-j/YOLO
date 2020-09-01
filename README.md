@@ -5,6 +5,7 @@
 ---
 ## 참고자료
 https://www.youtube.com/watch?v=HMgcvgRrDcA  
+https://seongkyun.github.io/papers/2019/11/20/yolov3/  
 https://yeomko.tistory.com/48  
 https://hwkim94.github.io/deeplearning/cnn/image-detection/yolo/paperreview/2018/09/23/YOLO3.html  
 http://openresearch.ai/t/yolov3-an-incremental-improvement/165  
