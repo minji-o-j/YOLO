@@ -1,9 +1,11 @@
-# YOLOv3
+# YOLO
 - 자기설계 첫번째
-- 논문 링크: https://arxiv.org/pdf/1804.02767.pdf
-- 
+- YOLOv3논문 링크: https://arxiv.org/pdf/1804.02767.pdf
 ---
-## 참고자료
+## YOLOv2 참고자료
+
+---
+## YOLOv3 참고자료
 https://www.youtube.com/watch?v=HMgcvgRrDcA  
 https://seongkyun.github.io/papers/2019/11/20/yolov3/  
 https://yeomko.tistory.com/48  
@@ -21,5 +23,3 @@ https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/
 https://blog.paperspace.com/how-to-implement-a-yolo-v3-object-detector-from-scratch-in-pytorch-part-2/  
 https://blog.paperspace.com/how-to-implement-a-yolo-v3-object-detector-from-scratch-in-pytorch-part-3/  
 
-
-엄청많다..
