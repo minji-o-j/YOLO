@@ -1,5 +1,5 @@
 # YOLO
-- 자기설계 첫번째
+- 자기설계 첫번째: object detection
 - YOLOv3논문 링크: https://arxiv.org/pdf/1804.02767.pdf
 ---
 ## YOLOv2 참고자료
