@@ -6,7 +6,7 @@
 https://www.youtube.com/watch?v=6fdclSGgeio  
 https://taeu.github.io/paper/deeplearning-paper-yolov2/  
 https://yeomko.tistory.com/47
-https://hwiyong.tistory.com/273
+https://hwiyong.tistory.com/273  
 
 ---
 ## YOLOv3 참고자료
