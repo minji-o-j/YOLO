@@ -3,6 +3,8 @@
 - YOLOv3논문 링크: https://arxiv.org/pdf/1804.02767.pdf
 ---
 ## YOLOv2 참고자료
+https://taeu.github.io/paper/deeplearning-paper-yolov2/  
+
 
 ---
 ## YOLOv3 참고자료
