@@ -3,7 +3,7 @@
 - YOLOv3논문 링크: https://arxiv.org/pdf/1804.02767.pdf
 ---
 ## YOLOv2 참고자료
-https://www.youtube.com/watch?v=6fdclSGgeio
+https://www.youtube.com/watch?v=6fdclSGgeio  
 https://taeu.github.io/paper/deeplearning-paper-yolov2/  
 https://yeomko.tistory.com/47
 
