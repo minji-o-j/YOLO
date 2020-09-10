@@ -4,8 +4,6 @@
 ---
 ## YOLOv2 참고자료
 https://www.youtube.com/watch?v=6fdclSGgeio  
-https://taeu.github.io/paper/deeplearning-paper-yolov2/  
-https://yeomko.tistory.com/47  
 https://hwiyong.tistory.com/273  
 https://dhhwang89.tistory.com/136  
 https://89douner.tistory.com/93  
@@ -15,15 +13,10 @@ https://89douner.tistory.com/93
 ## YOLOv3 참고자료
 https://www.youtube.com/watch?v=HMgcvgRrDcA  
 https://seongkyun.github.io/papers/2019/11/20/yolov3/  
-https://yeomko.tistory.com/48  
 https://hwkim94.github.io/deeplearning/cnn/image-detection/yolo/paperreview/2018/09/23/YOLO3.html  
-http://openresearch.ai/t/yolov3-an-incremental-improvement/165  
-https://uos-deep-learning.tistory.com/18  
 https://taeu.github.io/paper/deeplearning-paper-yolov3/  
 https://medium.com/@venkatakrishna.jonnalagadda/object-detection-yolo-v1-v2-v3-c3d5eca2312a `1,2,3 비교`  
-https://medium.com/@wise_snow_bee_167/%EB%AA%A9%EC%B0%A8-4c378d1546b6   
-https://towardsdatascience.com/yolo-v3-object-detection-53fb7d3bfe6b   
-https://gist.github.com/gihyunkim/4506bc89c680e01d94cc53abc053b340  
+
 
 시리즈>  
 https://blog.paperspace.com/how-to-implement-a-yolo-object-detector-in-pytorch/  
