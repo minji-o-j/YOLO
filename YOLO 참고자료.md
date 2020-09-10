@@ -1,8 +1,9 @@
-# YOLO
+# YOLO 공부하면서 읽었던 자료
 - 자기설계 첫번째: object detection
-- YOLOv3논문 링크: https://arxiv.org/pdf/1804.02767.pdf
+- YOLO9000 논문 링크: https://arxiv.org/abs/1612.08242
+- YOLOv3 논문 링크: https://arxiv.org/pdf/1804.02767.pdf
 ---
-## YOLOv2 참고자료
+## YOLO9000(v2) 참고자료
 https://www.youtube.com/watch?v=6fdclSGgeio  
 https://hwiyong.tistory.com/273  
 https://dhhwang89.tistory.com/136  
