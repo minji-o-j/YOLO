@@ -251,13 +251,13 @@ decay_lrs = { #이후 10, 60, 90에서 줄이는 것이 아니라 60, 90에서�
 ![image](https://user-images.githubusercontent.com/45448731/95899980-46f6c900-0dcc-11eb-8f11-03ed17e406f2.png)
 ---
 - 목차
-[Multi-Scale training](#1-Multi-Scale-training)
-[High Resolution Classifier](#2-High-Resolution-Classifier)
-[Batch normalization]()
-[Convolutional With Anchor Boxes]()
-[Direct location prediction]()
-[Dimension Clusters]()
-[Fine-Grained Features]()
+[Multi-Scale training](#1-Multi-Scale-training)  
+[High Resolution Classifier](#2-High-Resolution-Classifier)  
+[Batch normalization](#3-Batch-normalization)  
+[Convolutional With Anchor Boxes](#4-Convolutional-With-Anchor-Boxes)  
+[Direct location prediction](#5-Direct-location-prediction)  
+[Dimension Clusters](#6-Dimension-Clusters)  
+[Fine-Grained Features](#7-Fine-Grained-Features)  
 
 
 ---
