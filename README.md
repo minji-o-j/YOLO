@@ -2,7 +2,7 @@
 ---
 ## YOLOv2 코드를 이용하였기 때문에 YOLOv2 논문 중 Better, Faster 부분에 대해서 설명
 ### [Faster](#1-Faster)
-### [Better](#2-Faster)
+### [Better](#2-better)
 ---
 # 1. Faster
 ---
@@ -242,13 +242,17 @@ decay_lrs = { #이후 10, 60, 90에서 줄이는 것이 아니라 60, 90에서�
 }
 ...
 ```
+<br><br>
+
+---
+---
 ---
 # 2. Better
 ![image](https://user-images.githubusercontent.com/45448731/95899980-46f6c900-0dcc-11eb-8f11-03ed17e406f2.png)
 ---
 - 목차
-[Multi-Scale training]()
-[High Resolution Classifier]()
+[Multi-Scale training](#1-Multi-Scale-training)
+[High Resolution Classifier](#2-High-Resolution-Classifier)
 [Batch normalization]()
 [Convolutional With Anchor Boxes]()
 [Direct location prediction]()
