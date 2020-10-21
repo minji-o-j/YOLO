@@ -1,1 +1,1 @@
-### https://github.com/minji-o-j/YOLO/wiki
+### https://github.com/minji-o-j/YOLOv2/wiki
