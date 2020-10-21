@@ -250,7 +250,7 @@ decay_lrs = { #이후 10, 60, 90에서 줄이는 것이 아니라 60, 90에서�
 # 2. Better
 ![image](https://user-images.githubusercontent.com/45448731/95899980-46f6c900-0dcc-11eb-8f11-03ed17e406f2.png)
 ---
-- 목차
+- 목차  
 [Multi-Scale training](#1-Multi-Scale-training)  
 [High Resolution Classifier](#2-High-Resolution-Classifier)  
 [Batch normalization](#3-Batch-normalization)  
