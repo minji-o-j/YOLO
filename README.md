@@ -240,3 +240,215 @@ decay_lrs = { #이후 10, 60, 90에서 줄이는 것이 아니라 60, 90에서�
 }
 ...
 ```
+---
+# 2. Better
+![image](https://user-images.githubusercontent.com/45448731/95899980-46f6c900-0dcc-11eb-8f11-03ed17e406f2.png)
+---
+- 목차
+[Multi-Scale training]()
+[High Resolution Classifier]()
+[Batch normalization]()
+[Convolutional With Anchor Boxes]()
+[Direct location prediction]()
+[Dimension Clusters]()
+[Fine-Grained Features]()
+
+
+---
+## 1) Multi-Scale training
+- Batch를 10번 돌 때마다 320, 352, ... 608 까지 중 선택하여 이미지를 resizing
+```py
+# [config.py]
+...
+scale_step = 40  # 10씩마다 아니고 40마다로 구현
+...
+input_sizes = [(320, 320),
+               (352, 352),
+               (384, 384),
+               (416, 416),
+               (448, 448),
+               (480, 480),
+               (512, 512),
+               (544, 544),
+               (576, 576)] #본 코드에서는 608까지가 아니라 576까지
+
+input_size = (416, 416)
+
+test_input_size = (416, 416)
+...
+```
+```py
+# [train.py]
+...
+if cfg.multi_scale and (step + 1) % cfg.scale_step == 0:
+                scale_index = np.random.randint(*cfg.scale_range) # 224보다 큰 size들에 대하여 random으로 학습
+                cfg.input_size = cfg.input_sizes[scale_index]
+...
+```
+<br><br>
+
+---
+## 2) High Resolution Classifier
+- Faster의 Training for classification 마지막 항목 참조
+<br><br>
+
+---
+## 3) Batch normalization
+```py
+# [darknet.py]
+...
+# Convolutional layer 만드는 함수
+def conv_bn_leaky(in_channels, out_channels, kernel_size, return_module=False):
+    padding = int((kernel_size - 1) / 2)
+    layers = [nn.Conv2d(in_channels, out_channels, kernel_size=kernel_size,
+                        stride=1, padding=padding, bias=False),
+            nn.BatchNorm2d(out_channels),  # Conv layer만들 때마다 있음을 확인!
+            nn.LeakyReLU(0.1, inplace=True)]
+    if return_module:
+        return nn.Sequential(*layers)
+    else:
+        return layers
+...
+    def _make_layers(self, layer_cfg):
+        layers = []
+
+        # set the kernel size of the first conv block = 3
+        kernel_size = 3
+        for v in layer_cfg:
+            if v == 'M':
+                layers += [nn.MaxPool2d(kernel_size=2, stride=2)]
+            else:
+                layers += conv_bn_leaky(self.in_channels, v, kernel_size) # Convolutional layer 만들 때 위의 함수 호출함
+                kernel_size = 1 if kernel_size == 3 else 3
+                self.in_channels = v
+        return nn.Sequential(*layers)
+...
+```
+<br><br>
+
+---
+## 4) Convolutional With Anchor Boxes
+- Anchor Boxes -> detection 단계에 필요!!
+- YOLOv2에서는 10 epoch동안 imagenet을 448x448로 키운 것에 대해 학습<sup>[High Resolution Classifier]()</sup>을 하지만, 실제 object detection 수행시에는 448x448 resolution이 아니라 416x416 resolution을 가지게끔 하는 것
+- 본 코드에서는 [High Resolution Classifier]()는 없지만, object detection 수행 시 416x416 resolution을 가지도록 변환하는 부분 존재
+
+```py
+# [config.py]
+...
+test_input_size = (416, 416) # size 416x416 정의
+...
+```
+```py
+# [yolo_eval.py]
+def scale_boxes(boxes, im_info):
+...
+    input_h, input_w = cfg.test_input_size # input image의 h,w 수정
+...
+
+def yolo_eval(yolo_output, im_info, conf_threshold=0.6, nms_threshold=0.4):
+...
+    # scale boxes
+    boxes = scale_boxes(boxes, im_info) #yolo_eval 함수 안에서 호출
+...
+```
+```py
+# [test.py]
+# test에서 detection 수행시 yolo_eval 함수 호출함으로써 input image의 size 조절
+detections = yolo_eval(output, im_info, conf_threshold=args.conf_thresh,
+                                       nms_threshold=args.nms_thresh)
+```
+
+
+- 모든 anchor box(bounding box)마다 class를 찾는다.
+```py
+# [yolo_eval.py]
+...
+# BOX 정의하는 함수
+def generate_prediction_boxes(deltas_pred):
+...
+
+def yolo_eval(yolo_output, im_info, conf_threshold=0.6, nms_threshold=0.4):
+...
+    boxes = generate_prediction_boxes(deltas) # box 정의시 위의 함수 호출
+...
+# box와 함께 class 예측
+boxes, conf, cls_max_conf, cls_max_id = yolo_filter_boxes(boxes, conf, classes, conf_threshold) 
+...
+```
+<br><br>
+
+---
+## 5) Direct location prediction
+![image](https://user-images.githubusercontent.com/45448731/95906311-f0da5380-0dd4-11eb-9eac-88801aba7c48.png)
+- the cell is
+offset from the top left corner of the image by (c_x,c_y)
+- the bounding box prior has width and height p_w, p_h
+```py
+# [yolov2.py]
+...
+from loss import build_target, yolo_loss # loss.py 내부에 있는 함수 호출
+...
+        xy_pred = torch.sigmoid(out[:, :, 0:2]) #  σ(t_x), σ(t_y)
+        conf_pred = torch.sigmoid(out[:, :, 4:5]) #  Variable of shape (B, H * W * num_anchors, 1), prediction of IoU score t_o
+        hw_pred = torch.exp(out[:, :, 2:4]) # e^(tw), e^(th)
+        class_score = out[:, :, 5:] # Variable of shape (B, H * W * num_anchors, num_classes), prediction of class scores (cls1, cls2 ..)
+        class_pred = F.softmax(class_score, dim=-1)
+        delta_pred = torch.cat([xy_pred, hw_pred], dim=-1) # Variable of shape (B, H * W * num_anchors, 4), predictions of delta σ(t_x), σ(t_y), σ(t_w), σ(t_h)
+
+        if training:
+            output_variable = (delta_pred, conf_pred, class_score)
+            output_data = [v.data for v in output_variable]
+            gt_data = (gt_boxes, gt_classes, num_boxes)
+            target_data = build_target(output_data, gt_data, h, w)
+
+            target_variable = [Variable(v) for v in target_data]
+            box_loss, iou_loss, class_loss = yolo_loss(output_variable, target_variable) #yolo_loss 호출
+
+            return box_loss, iou_loss, class_loss
+...
+```
+```py
+# [loss.py]
+...
+def yolo_loss(output, target):
+...
+    delta_pred_batch = output[0] # delta_pred = torch.cat([xy_pred, hw_pred], dim=-1)
+    conf_pred_batch = output[1]  # conf_pred = torch.sigmoid(out[:, :, 4:5])
+    class_score_batch = output[2] # class_score = out[:, :, 5:]
+
+    iou_target = target[0] #?<질문
+    iou_mask = target[1]
+    box_target = target[2]
+    box_mask = target[3]
+    class_target = target[4]
+    class_mask = target[5]
+...
+    # calculate the loss, normalized by batch size.
+    box_loss = 1 / b * cfg.coord_scale * F.mse_loss(delta_pred_batch * box_mask, box_target * box_mask, reduction='sum') / 2.0
+    iou_loss = 1 / b * F.mse_loss(conf_pred_batch * iou_mask, iou_target * iou_mask, reduction='sum') / 2.0
+    class_loss = 1 / b * cfg.class_scale * F.cross_entropy(class_score_batch_keep, class_target_keep, reduction='sum')
+
+    return box_loss, iou_loss, class_loss
+```
+<br><br>
+
+---
+## 6) Dimension Clusters
+- K-means clustering을 이용하여 anchor box의 size를 선택함
+- 여기서는 k-means를 하여 값을 얻는 과정 포함 X
+- PASCAL VOC set 기반으로 k=5로 미리 얻어진 anchors 값 사용
+
+```py
+# [config.py]
+anchors = [[1.3221, 1.73145], [3.19275, 4.00944], [5.05587, 8.09892], [9.47112, 4.84053], [11.2364, 10.0071]]
+...
+```
+
+
+<br><br>
+
+
+---
+## 7) Fine-Grained Features
+![image](https://user-images.githubusercontent.com/45448731/95904530-9cce6f80-0dd2-11eb-885c-3175745a11b7.png)
+- 없는것같다
