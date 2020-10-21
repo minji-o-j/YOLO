@@ -1,13 +1,13 @@
 # YOLOv2 코드와 YOLOv2 논문 비교
 ---
-## YOLOv2 코드를 이용하였기 때문에 YOLOv2 논문 중 Better, Faster 부분에 대해서 설명하도록 하겠습니다.
+## YOLOv2 코드를 이용하였기 때문에 YOLOv2 논문 중 Better, Faster 부분에 대해서 설명
 ---
 # 1. Faster
 ---
 - 목차
-[Darknet-19]()
-[Training for classification]()
-[Training for detection]()
+[Darknet-19]()  
+[Training for classification]()  
+[Training for detection]()  
 ---
 ## 1) Darknet-19
 ![image](https://user-images.githubusercontent.com/45448731/95813756-9351f280-0d53-11eb-8504-2a9cdfc51b9c.png)
