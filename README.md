@@ -9,3 +9,8 @@
 ---
 ## YOLOv2 코드 분석
 ### https://github.com/minji-o-j/YOLOv2/wiki
+---
+## 시연 영상
+- PASCAL VOC dataset으로 훈련
+
+
