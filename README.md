@@ -16,3 +16,6 @@
 ## Object Detection in Games
 ### Animal Crossing (동물의 숲)
 [![Video Label](https://user-images.githubusercontent.com/45448731/96962823-8945a600-1542-11eb-8e0a-f811d5c76036.png)](https://www.youtube.com/watch?v=koKKGMzsVRQ&t=0s)  
+
+### FIFA 20
+[![Video Label](https://user-images.githubusercontent.com/45448731/97032087-2f71ca00-159c-11eb-8cc1-beb3fc14479f.png)](https://www.youtube.com/watch?v=sKaGwJke-nU=0s)  
