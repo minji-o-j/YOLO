@@ -16,4 +16,3 @@
 ## Object Detection in Games
 ### Animal Crossing (동물의 숲)
 [![Video Label](http://img.youtube.com/vi/koKKGMzsVRQ/0.jpg)](https://www.youtube.com/watch?v=koKKGMzsVRQ&t=0s)  
-{% include animal_crossing.html id="koKKGMzsVRQ" %}  
