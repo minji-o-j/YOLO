@@ -15,14 +15,18 @@
 ---
 ## Object Detection in Games
 ### Animal Crossing (동물의 숲)
-  <a href="https://www.youtube.com/watch?v=koKKGMzsVRQ&t=0s">
-    <img src="https://user-images.githubusercontent.com/45448731/96962823-8945a600-1542-11eb-8e0a-f811d5c76036.png" width="720px"/>
-  </a>
+<a href="https://www.youtube.com/watch?v=koKKGMzsVRQ&t=0s">
+  <img src="https://user-images.githubusercontent.com/45448731/96962823-8945a600-1542-11eb-8e0a-f811d5c76036.png" width="720px"/>
+</a>
 <br><br>
 
 ### FIFA 20
-[![Video Label](https://user-images.githubusercontent.com/45448731/97032087-2f71ca00-159c-11eb-8cc1-beb3fc14479f.png)](https://www.youtube.com/watch?v=sKaGwJke-nU=0s)  
+<a href="https://www.youtube.com/watch?v=sKaGwJke-nU=0s">
+  <img src="https://user-images.githubusercontent.com/45448731/97032087-2f71ca00-159c-11eb-8cc1-beb3fc14479f.png" width="720px"/>
+</a>
 <br><br>
 
 ### Sims 4 (심즈 4)
-[![Video Label](https://user-images.githubusercontent.com/45448731/97070935-4275b000-1617-11eb-8ba9-4a87a814fd6d.png)](https://www.youtube.com/watch?v=5JEekseT_J4&t=0s) 
+<a href="https://www.youtube.com/watch?v=5JEekseT_J4&t=0s">
+  <img src="https://user-images.githubusercontent.com/45448731/97070935-4275b000-1617-11eb-8ba9-4a87a814fd6d.png" width="720px"/>
+</a>
