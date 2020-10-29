@@ -1,4 +1,4 @@
-> 코드를 [이곳](https://github.com/tztztztztz/yolov2.pytorch) 에서 다운 후 수정했음을 밝힙니다.
+> _코드를 [이곳](https://github.com/tztztztztz/yolov2.pytorch) 에서 다운 후 수정했음을 밝힙니다._
 ---
 ## 수정 내용
 - 이미지 detect한 결과 이미지로 저장
