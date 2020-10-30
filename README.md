@@ -26,7 +26,9 @@
 
 ---
 ## Object Detection in Games
+## > see all: [click](https://www.youtube.com/watch?v=5JEekseT_J4&list=PL7GlTFtxG6kgNNP__ohX_Zq1TqHpj0KyP)
 ### Animal Crossing (동물의 숲)
+
 <a href="https://www.youtube.com/watch?v=koKKGMzsVRQ&t=0s">
   <img src="https://user-images.githubusercontent.com/45448731/96962823-8945a600-1542-11eb-8e0a-f811d5c76036.png" width="720px"/>
 </a>
