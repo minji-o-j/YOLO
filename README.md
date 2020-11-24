@@ -1,14 +1,4 @@
-> _코드를 [이곳](https://github.com/tztztztztz/yolov2.pytorch) 에서 다운 후 수정했음을 밝힙니다._
----
-## 수정 내용
-- 이미지 detect한 결과 이미지로 저장
-- 동영상 detect한 결과 영상으로 저장
-- 최신 버전 파이썬에서 실행되도록 수정
-- pretrained와 pretrained 하지 않은 것 가져오기 쉽게 파라미터 수정
-- 이미지별 FPS, 소요시간 엑셀 저장
-- detected된 좌표와 label 이미지별 엑셀 저장
-> +)수정 필요한것: 새로운 동영상으로 실험 시 `images`아래 게임 폴더 만들고, 그 폴더안에 `setimage`,`detected_img`폴더 있어야함
----
+
 ## YOLOv2 코드 분석
 ### https://github.com/minji-o-j/YOLOv2/wiki
 ---
@@ -55,3 +45,16 @@
 <br><br>
 
 
+---
+### reference
+> _코드를 [이곳](https://github.com/tztztztztz/yolov2.pytorch) 에서 다운 후 수정했음을 밝힙니다._
+
+## 수정 내용
+- 이미지 detect한 결과 이미지로 저장
+- 동영상 detect한 결과 영상으로 저장
+- 최신 버전 파이썬에서 실행되도록 수정
+- pretrained와 pretrained 하지 않은 것 가져오기 쉽게 파라미터 수정
+- 이미지별 FPS, 소요시간 엑셀 저장
+- detected된 좌표와 label 이미지별 엑셀 저장
+> +)수정 필요한것: 새로운 동영상으로 실험 시 `images`아래 게임 폴더 만들고, 그 폴더안에 `setimage`,`detected_img`폴더 있어야함
+---
