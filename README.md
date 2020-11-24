@@ -46,10 +46,10 @@
 
 
 ---
-### reference
+## reference
 > _코드를 [이곳](https://github.com/tztztztztz/yolov2.pytorch) 에서 다운 후 수정했음을 밝힙니다._
 
-## 수정 내용
+### 수정 내용
 - 이미지 detect한 결과 이미지로 저장
 - 동영상 detect한 결과 영상으로 저장
 - 최신 버전 파이썬에서 실행되도록 수정
